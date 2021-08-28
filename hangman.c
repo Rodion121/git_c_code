@@ -101,7 +101,10 @@ void hangman(const char secret[]) {
 	char available_letters[30] = "";
 	int l = 5, g = 0;;
 
-	printf("my guessed word is %s\n", secret);
+	/*printf("my guessed word is ");
+	for (int k = 0; k < strlen(secret); k++)
+		printf("%c", secret[k]);
+	printf("\n");*/
 	do{
 		int p = 0;
 
@@ -114,7 +117,7 @@ void hangman(const char secret[]) {
 		}
 		g++;
 		
-		printf("Our attempts is %d\n", l);
+		printf("Your attempts is %d\n", l);
 
 		for (int k = 0; k < strlen(guessed_word); k++)
 			printf("%c ", guessed_word[k]);
@@ -143,7 +146,7 @@ void hangman(const char secret[]) {
 			else l = -2;
 		}
 		
-	}while(l>0);
+	}while(l>1);
 
 
 	if (l == -2) {
@@ -152,8 +155,10 @@ void hangman(const char secret[]) {
 	}
 	else {
 		printf("You lose!\n");
+		printf("The guessed word is '");
 		for (int i = 0; i < strlen(secret); i++)
 			printf("%c", secret[i]);
+		printf("'");
 	}
 
 }
